@@ -10,7 +10,9 @@ import { Keg } from './keg.model';
       <option value="kegEmpty">Empty Kegs</option>
     </select>
   <ul>
-    <li [class]="priceColor(currentKeg)" *ngFor="let currentKeg of childKegList | emptiness:filterByEmptiness">{{currentKeg.name}} {{currentKeg.brand}} {{currentKeg.price}} {{currentKeg.alcohol}} {{currentKeg.pints}}
+    <li [class]="priceColor(currentKeg)" *ngFor="let currentKeg of childKegList | emptiness:filterByEmptiness">
+      <span *ngIf="currentKeg.alcohol>=7"><strong>{{currentKeg.name}} {{currentKeg.brand}} {{currentKeg.price}} Alcohol:{{currentKeg.alcohol}}% {{currentKeg.pints}}</strong></span>
+      <span *ngIf="currentKeg.alcohol<7">{{currentKeg.name}} {{currentKeg.brand}} {{currentKeg.price}} Alcohol:{{currentKeg.alcohol}}% {{currentKeg.pints}}</span>
     <button (click)="soldPints(currentKeg, currentKeg.pints)">Sell Pint</button>
 
     <button (click)="editButtonHasBeenClicked(currentKeg)">Edit Keg</button></li>
@@ -55,6 +57,15 @@ export class KegListComponent {
       return  "bg-warning";
     } else {
       return "bg-info";
+    }
+  }
+
+  alcoholDisplay(currentKeg){
+    console.log(currentKeg.alcohol);
+    if (currentKeg.alcohol >= 7){
+      return "font-weight-bold";
+    } else {
+      return "text";
     }
   }
 }

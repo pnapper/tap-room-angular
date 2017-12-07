@@ -16,7 +16,7 @@ import { Keg } from './keg.model';
 })
 
 export class AppComponent {
-  currentFocus: string = 'Tap 1';
+  currentFocus: string = 'Beers On Tap';
   currentTime = new Date();
   month: number = this.currentTime.getMonth() + 1;
   day: number = this.currentTime.getDate();
@@ -25,8 +25,8 @@ export class AppComponent {
   selectedKeg = null;
 
   masterKegList: Keg[] = [
-    new Keg('African Amber', 'Mac and Jacks', 6, 6),
-    new Keg('Stella Artois Lager', 'Annheiser Busch', 5, 4),
+    new Keg('African Amber', 'Mac and Jacks', 5, 6),
+    new Keg('Stella Artois Lager', 'Annheiser Busch', 4, 4),
     new Keg('Black Butte Porter', 'Deschutes', 6, 7),
     new Keg('Jamaican Stout', 'Outlander Brewing', 6, 7),
   ];
