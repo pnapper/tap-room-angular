@@ -10,7 +10,7 @@ import { Keg } from './keg.model';
       <option value="kegEmpty">Empty Kegs</option>
     </select>
   <ul>
-    <li *ngFor="let currentKeg of childKegList | emptiness:filterByEmptiness">{{currentKeg.name}} {{currentKeg.brand}} {{currentKeg.price}} {{currentKeg.alcohol}} {{currentKeg.pints}}
+    <li [class]="priceColor(currentKeg)" *ngFor="let currentKeg of childKegList | emptiness:filterByEmptiness">{{currentKeg.name}} {{currentKeg.brand}} {{currentKeg.price}} {{currentKeg.alcohol}} {{currentKeg.pints}}
     <button (click)="soldPints(currentKeg, currentKeg.pints)">Sell Pint</button>
 
     <button (click)="editButtonHasBeenClicked(currentKeg)">Edit Keg</button></li>
